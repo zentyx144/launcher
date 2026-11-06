@@ -59,7 +59,7 @@ class Prefs(c: Context) {
     operator fun set(k: String, v: Int) { m[k] = v; p.edit().putInt(k, v).apply() }
     var pack by mutableStateOf(p.getString("pack", "") ?: "")
         private set
-    fun setPack(v: String) { pack = v; p.edit().putString("pack", v).apply() }
+    @JvmName("selectPack") fun setPack(v: String) { pack = v; p.edit().putString("pack", v).apply() }
 }
 
 val seeds = listOf(0xFF6750A4, 0xFF006C51, 0xFFB3261E, 0xFF0061A4, 0xFF8B5000, 0xFFA23A8E).map { Color(it) }
